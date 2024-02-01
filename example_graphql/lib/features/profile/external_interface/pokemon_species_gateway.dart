@@ -25,7 +25,7 @@ class PokemonSpeciesGateway extends Gateway<
   PokemonSpeciesSuccessDomainInput onSuccess(GraphQLSuccessResponse response) {
     return PokemonSpeciesSuccessDomainInput(
       species: PokemonSpeciesModel.fromJson(
-        response.data['pokemon_v2_pokemonspecies'][0],
+        (response.data['pokemon_v2_pokemonspecies'] as List).first,
       ),
     );
   }

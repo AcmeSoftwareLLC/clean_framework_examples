@@ -58,7 +58,7 @@ class HomeUI extends UI<HomeViewModel> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Pokémon'),
+        title: Text('Pokémon (REST)'),
         centerTitle: false,
         titleTextStyle: textTheme.displaySmall!.copyWith(
           fontWeight: FontWeight.w300,

@@ -37,8 +37,10 @@ void main() {
             GraphQLSuccessResponse(
               data: {
                 "pokemon_v2_pokemon": [
-                  {"id": 1, "name": "bulbasaur"},
-                  {"id": 2, "name": "ivysaur"},
+                  {
+                    "id": 1,
+                    "name": "bulbasaur",
+                  },
                 ],
               },
             ),

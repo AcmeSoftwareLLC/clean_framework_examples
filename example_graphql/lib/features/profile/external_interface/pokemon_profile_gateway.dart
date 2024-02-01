@@ -25,7 +25,7 @@ class PokemonProfileGateway extends Gateway<
   PokemonProfileSuccessInput onSuccess(GraphQLSuccessResponse response) {
     return PokemonProfileSuccessInput(
       profile: PokemonProfileModel.fromJson(
-        response.data['pokemon_v2_pokemon'][0],
+        (response.data['pokemon_v2_pokemon'] as List).first,
       ),
     );
   }
