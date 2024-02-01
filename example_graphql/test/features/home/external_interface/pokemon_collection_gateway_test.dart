@@ -13,14 +13,19 @@ void main() {
       final request = await gateway.buildRequest(gatewayOutput);
 
       expect(request.document, equals('''
-  query pokemonQuery {
-    pokemon_v2_pokemon(limit: 1000) {
+  query pokemonQuery(\$limit: Int) {
+    pokemon_v2_pokemon(limit: \$limit) {
       id
       name
     }
   }
   '''));
-      expect(request.variables, equals({}));
+      expect(
+        request.variables,
+        equals(
+          {'limit': 1000},
+        ),
+      );
 
       expect(gatewayOutput, PokemonCollectionDomainToGatewayModel());
     });

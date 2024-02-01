@@ -43,8 +43,8 @@ class PokemonCollectionGateway extends Gateway<
 class PokemonCollectionQueryRequest extends PokemonQueryRequest {
   @override
   String get document => '''
-  query pokemonQuery {
-    pokemon_v2_pokemon(limit: 1000) {
+  query pokemonQuery(\$limit: Int) {
+    pokemon_v2_pokemon(limit: \$limit) {
       id
       name
     }
@@ -52,5 +52,7 @@ class PokemonCollectionQueryRequest extends PokemonQueryRequest {
   ''';
 
   @override
-  Map<String, dynamic> get variables => {};
+  Map<String, dynamic> get variables => {
+        'limit': 1000,
+      };
 }
