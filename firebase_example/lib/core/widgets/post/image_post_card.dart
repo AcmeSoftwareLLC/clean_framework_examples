@@ -169,8 +169,7 @@ class ImagePostCard extends StatelessWidget {
                       ),
                     ),
                     const PostCommentWidget(
-                        userName: 'giovanni_costanzo_',
-                        comment: 'this isn\'t instagram, how did i get here'),
+                        userName: 'test_user', comment: 'test comment'),
                     const SizedBox(
                       height: 4.0,
                     ),
