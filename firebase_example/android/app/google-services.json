@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "422287132056",
+    "project_id": "clean-framework-firebase-expl",
+    "storage_bucket": "clean-framework-firebase-expl.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:422287132056:android:d21ebf80d7e10f7812d7ed",
+        "android_client_info": {
+          "package_name": "com.example.theme_example"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBhDMMhUCGpiFIn-ACkQX1rqmgpPaOzvWI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
