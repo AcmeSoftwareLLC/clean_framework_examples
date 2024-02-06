@@ -53,6 +53,17 @@ class CreatePostUseCase extends UseCase<CreatePostEntity> {
 
   void clearCreateMessage() => entity = entity.copyWith(createMessage: '');
 
+  void clearCache() => entity = entity.copyWith(
+        posterUsername: '',
+        posterProfileImage: '',
+        posterVerified: false,
+        postImage: '',
+        postDescription: '',
+        postLikes: 0,
+        postDate: '',
+        createMessage: '',
+      );
+
   Future<void> createPost() async {
     await request<CreatePostSuccessDomainInput>(
       CreatePostDomainToGatewayModel(
@@ -72,6 +83,8 @@ class CreatePostUseCase extends UseCase<CreatePostEntity> {
       onFailure: (failure) =>
           entity.copyWith(createMessage: 'Could not create post.'),
     );
+
+    clearCache();
   }
 }
 
