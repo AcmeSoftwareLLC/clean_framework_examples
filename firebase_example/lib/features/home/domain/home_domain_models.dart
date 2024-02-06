@@ -1,6 +1,6 @@
 import 'package:clean_framework/clean_framework.dart';
-import 'package:clean_framework_firebase_example/features/home/models/user_model.dart';
-import 'package:clean_framework_firebase_example/features/home/models/user_post_model.dart';
+import 'package:clean_framework_firebase_example/core/models/user_model.dart';
+import 'package:clean_framework_firebase_example/core/models/user_post_model.dart';
 
 class HomeDomainToUIModel extends DomainModel {
   const HomeDomainToUIModel({

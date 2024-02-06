@@ -1,8 +1,8 @@
+import 'package:clean_framework_firebase_example/core/theme/firebase_example_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:clean_framework_firebase_example/dependency/flutter_flow/flutter_flow_theme.dart';
 
-class PostCommentWidget extends StatelessWidget {
-  const PostCommentWidget({
+class ImagePostCommentWidget extends StatelessWidget {
+  const ImagePostCommentWidget({
     super.key,
     required this.userName,
     required this.comment,
@@ -16,10 +16,10 @@ class PostCommentWidget extends StatelessWidget {
     return RichText(
       text: TextSpan(
         text: userName,
-        style: FlutterFlowTheme.of(context).bodyMedium,
+        style: FirebaseExampleTheme.of(context).bodyMedium,
         children: [
           TextSpan(
-            style: FlutterFlowTheme.of(context).labelMedium,
+            style: FirebaseExampleTheme.of(context).labelMedium,
             text: ' $comment',
           )
         ],

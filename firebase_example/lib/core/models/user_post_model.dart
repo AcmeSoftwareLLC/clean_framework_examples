@@ -1,5 +1,5 @@
 import 'package:clean_framework/clean_framework.dart';
-import 'package:clean_framework_firebase_example/features/home/models/user_model.dart';
+import 'package:clean_framework_firebase_example/core/models/user_model.dart';
 
 class UserPostModel extends Equatable {
   const UserPostModel({
@@ -37,4 +37,12 @@ class UserPostModel extends Equatable {
       postDate: deserializer.getString('date'),
     );
   }
+
+  Map<String, dynamic> toJson() => {
+        'date': postDate,
+        'description': postComment,
+        'image': postImageLink,
+        'likes': postLikes,
+        'poster': postingUser.toJson(),
+      };
 }

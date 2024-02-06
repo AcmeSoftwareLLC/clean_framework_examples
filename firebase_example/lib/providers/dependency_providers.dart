@@ -1,4 +1,4 @@
-import 'package:clean_framework_firebase_example/features/home/models/user_model.dart';
+import 'package:clean_framework_firebase_example/core/models/user_model.dart';
 
 UserModel thisUser = const UserModel(
   userName: 'test_user',

@@ -1,10 +1,10 @@
+import 'package:clean_framework_firebase_example/core/widgets/post/image_post_icon_button.dart';
+import 'package:clean_framework_firebase_example/core/theme/firebase_example_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:clean_framework_firebase_example/core/widgets/post/post_comment_widget.dart';
+import 'package:clean_framework_firebase_example/core/widgets/post/image_post_comment_widget.dart';
 import 'package:clean_framework_firebase_example/core/widgets/user/profile_icon_widget.dart';
-import 'package:clean_framework_firebase_example/dependency/flutter_flow/flutter_flow_icon_button.dart';
-import 'package:clean_framework_firebase_example/dependency/flutter_flow/flutter_flow_theme.dart';
-import 'package:clean_framework_firebase_example/features/home/models/user_post_model.dart';
+import 'package:clean_framework_firebase_example/core/models/user_post_model.dart';
 
 class ImagePostCard extends StatelessWidget {
   const ImagePostCard({
@@ -35,7 +35,7 @@ class ImagePostCard extends StatelessWidget {
               ),
               Text(
                 post.postingUser.userName,
-                style: FlutterFlowTheme.of(context).bodyMedium,
+                style: FirebaseExampleTheme.of(context).bodyMedium,
               ),
               if (post.postingUser.verified)
                 const SizedBox(
@@ -68,42 +68,42 @@ class ImagePostCard extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      FlutterFlowIconButton(
+                      ImagePostIconButton(
                         borderRadius: 20.0,
                         buttonSize: 40.0,
                         fillColor:
-                            FlutterFlowTheme.of(context).primaryBackground,
+                            FirebaseExampleTheme.of(context).primaryBackground,
                         icon: Icon(
                           Icons.favorite_border_rounded,
-                          color: FlutterFlowTheme.of(context).primaryText,
+                          color: FirebaseExampleTheme.of(context).primaryText,
                           size: 24.0,
                         ),
                         onPressed: () {
                           print('Like button pressed ...');
                         },
                       ),
-                      FlutterFlowIconButton(
+                      ImagePostIconButton(
                         borderRadius: 20.0,
                         buttonSize: 40.0,
                         fillColor:
-                            FlutterFlowTheme.of(context).primaryBackground,
+                            FirebaseExampleTheme.of(context).primaryBackground,
                         icon: Icon(
                           Icons.chat_bubble_outline_rounded,
-                          color: FlutterFlowTheme.of(context).primaryText,
+                          color: FirebaseExampleTheme.of(context).primaryText,
                           size: 24.0,
                         ),
                         onPressed: () {
                           print('Comment button pressed ...');
                         },
                       ),
-                      FlutterFlowIconButton(
+                      ImagePostIconButton(
                         borderRadius: 20.0,
                         buttonSize: 40.0,
                         fillColor:
-                            FlutterFlowTheme.of(context).primaryBackground,
+                            FirebaseExampleTheme.of(context).primaryBackground,
                         icon: Icon(
                           Icons.share_rounded,
-                          color: FlutterFlowTheme.of(context).primaryText,
+                          color: FirebaseExampleTheme.of(context).primaryText,
                           size: 24.0,
                         ),
                         onPressed: () {
@@ -115,14 +115,14 @@ class ImagePostCard extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      FlutterFlowIconButton(
+                      ImagePostIconButton(
                         borderRadius: 20.0,
                         buttonSize: 40.0,
                         fillColor:
-                            FlutterFlowTheme.of(context).primaryBackground,
+                            FirebaseExampleTheme.of(context).primaryBackground,
                         icon: Icon(
                           Icons.bookmark_border_rounded,
-                          color: FlutterFlowTheme.of(context).primaryText,
+                          color: FirebaseExampleTheme.of(context).primaryText,
                           size: 24.0,
                         ),
                         onPressed: () {
@@ -148,34 +148,34 @@ class ImagePostCard extends StatelessWidget {
                       children: [
                         Text(
                           '${numFormatter.format(post.postLikes)} likes',
-                          style: FlutterFlowTheme.of(context).bodyMedium,
+                          style: FirebaseExampleTheme.of(context).bodyMedium,
                         ),
                       ],
                     ),
                     Row(
                       children: [
                         Flexible(
-                          child: PostCommentWidget(
+                          child: ImagePostCommentWidget(
                             userName: post.postingUser.userName,
                             comment: post.postComment,
                           ),
                         ),
                       ],
                     ),
-                    RichText(
-                      text: TextSpan(
-                        text: 'View 16 comments',
-                        style: FlutterFlowTheme.of(context).bodyMedium,
-                      ),
-                    ),
-                    const PostCommentWidget(
-                        userName: 'test_user', comment: 'test comment'),
+                    // RichText(
+                    //   text: TextSpan(
+                    //     text: 'View 16 comments',
+                    //     style: FirebaseExampleTheme.of(context).bodyMedium,
+                    //   ),
+                    // ),
+                    // // const PostCommentWidget(
+                    //     userName: 'test_user', comment: 'test comment'),
                     const SizedBox(
                       height: 4.0,
                     ),
                     Text(
                       post.postDate,
-                      style: FlutterFlowTheme.of(context).labelSmall,
+                      style: FirebaseExampleTheme.of(context).labelSmall,
                     ),
                   ],
                 ),

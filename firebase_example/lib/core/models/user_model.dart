@@ -27,4 +27,10 @@ class UserModel extends Equatable {
       verified: deserializer.getBool('verified_user'),
     );
   }
+
+  Map<String, dynamic> toJson() => {
+        'profile_image': profileImageLink,
+        'user_name': userName,
+        'verified_user': verified,
+      };
 }

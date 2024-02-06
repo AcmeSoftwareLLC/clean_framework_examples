@@ -6,5 +6,6 @@ final firebaseExternalInterfaceProvider = ExternalInterfaceProvider(
   FirebaseExternalInterface.new,
   gateways: [
     getPostsGatewayProvider,
+    createPostGatewayProvider,
   ],
 );

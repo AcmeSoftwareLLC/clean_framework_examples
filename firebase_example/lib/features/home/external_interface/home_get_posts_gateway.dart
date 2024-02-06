@@ -1,7 +1,7 @@
 import 'package:clean_framework_firestore/clean_framework_firestore.dart';
 import 'package:clean_framework_firebase_example/features/home/domain/home_domain_inputs.dart';
 import 'package:clean_framework_firebase_example/features/home/domain/home_domain_models.dart';
-import 'package:clean_framework_firebase_example/features/home/models/user_post_model.dart';
+import 'package:clean_framework_firebase_example/core/models/user_post_model.dart';
 
 class HomeGetPostsGateway extends FirebaseGateway<
     HomeGetPostsDomainToGatewayModel,

@@ -1,7 +1,5 @@
-import 'package:clean_framework_router/clean_framework_router.dart';
 import 'package:flutter/material.dart';
-import 'package:clean_framework_firebase_example/features/home/models/user_model.dart';
-import 'package:clean_framework_firebase_example/router.dart';
+import 'package:clean_framework_firebase_example/core/models/user_model.dart';
 
 class ProfileIconWidget extends StatelessWidget {
   const ProfileIconWidget({
@@ -18,11 +16,7 @@ class ProfileIconWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextButton(
-      onPressed: () {
-        context.router.go(
-          Routes.profile,
-        );
-      },
+      onPressed: () {},
       child: Container(
         width: width,
         height: height,
