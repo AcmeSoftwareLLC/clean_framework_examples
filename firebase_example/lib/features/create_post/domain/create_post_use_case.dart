@@ -14,26 +14,44 @@ class CreatePostUseCase extends UseCase<CreatePostEntity> {
           ],
         );
 
-  void updateUsername(String username) =>
-      entity = entity.copyWith(posterUsername: username);
+  void updateUsername(String username) {
+    clearCreateMessage();
 
-  void updateProfileImage(String profileImage) =>
-      entity = entity.copyWith(posterProfileImage: profileImage);
+    entity = entity.copyWith(posterUsername: username);
+  }
 
-  void updateVerified(bool verified) =>
-      entity = entity.copyWith(posterVerified: verified);
+  void updateProfileImage(String profileImage) {
+    clearCreateMessage();
 
-  void updatePostImage(String postImage) =>
-      entity = entity.copyWith(postImage: postImage);
+    entity = entity.copyWith(posterProfileImage: profileImage);
+  }
 
-  void updatePostDescription(String postDescription) =>
-      entity = entity.copyWith(postDescription: postDescription);
+  void updateVerified(bool verified) {
+    clearCreateMessage();
+    entity = entity.copyWith(posterVerified: verified);
+  }
 
-  void updatePostLikes(int postLikes) =>
-      entity = entity.copyWith(postLikes: postLikes);
+  void updatePostImage(String postImage) {
+    clearCreateMessage();
+    entity = entity.copyWith(postImage: postImage);
+  }
 
-  void updatePostDate(String postDate) =>
-      entity = entity.copyWith(postDate: postDate);
+  void updatePostDescription(String postDescription) {
+    clearCreateMessage();
+    entity = entity.copyWith(postDescription: postDescription);
+  }
+
+  void updatePostLikes(int postLikes) {
+    clearCreateMessage();
+    entity = entity.copyWith(postLikes: postLikes);
+  }
+
+  void updatePostDate(String postDate) {
+    clearCreateMessage();
+    entity = entity.copyWith(postDate: postDate);
+  }
+
+  void clearCreateMessage() => entity = entity.copyWith(createMessage: '');
 
   Future<void> createPost() async {
     await request<CreatePostSuccessDomainInput>(

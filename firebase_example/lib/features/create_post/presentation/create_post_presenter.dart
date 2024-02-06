@@ -39,8 +39,8 @@ class CreatePostPresenter extends Presenter<CreatePostViewModel,
   void onDomainModelUpdate(
       BuildContext context, CreatePostDomainToUIModel domainModel) {
     if (domainModel.createMessage.isNotEmpty) {
-      const FirebaseToast(
-        title: 'yes',
+      FirebaseToast(
+        title: domainModel.createMessage,
       ).show(context);
     }
   }
