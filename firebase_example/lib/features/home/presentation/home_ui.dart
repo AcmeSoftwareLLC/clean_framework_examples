@@ -26,7 +26,12 @@ class HomeUI extends UI<HomeViewModel> {
               ...viewModel.userPosts.map(
                 (post) => Column(
                   children: [
-                    ImagePostCard(post: post),
+                    ImagePostCard(
+                      post: post,
+                      onPostClicked: () => viewModel.onPostClicked(
+                        post.postId,
+                      ),
+                    ),
                   ],
                 ),
               ),

@@ -10,9 +10,12 @@ class ImagePostCard extends StatelessWidget {
   const ImagePostCard({
     super.key,
     required this.post,
+    required this.onPostClicked,
   });
 
   final UserPostModel post;
+
+  final void Function() onPostClicked;
 
   @override
   Widget build(BuildContext context) {
@@ -33,9 +36,12 @@ class ImagePostCard extends StatelessWidget {
                 width: 35.0,
                 height: 35.0,
               ),
-              Text(
-                post.postingUser.userName,
-                style: FirebaseExampleTheme.of(context).bodyMedium,
+              InkWell(
+                onTap: onPostClicked,
+                child: Text(
+                  post.postingUser.userName,
+                  style: FirebaseExampleTheme.of(context).bodyMedium,
+                ),
               ),
               if (post.postingUser.verified)
                 const SizedBox(

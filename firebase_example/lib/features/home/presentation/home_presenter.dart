@@ -18,6 +18,7 @@ class HomePresenter
     return HomeViewModel(
       userProfileImage: domainModel.user.profileImageLink,
       userPosts: domainModel.userPosts,
+      onPostClicked: (id) => useCase.navigateToPost(id),
     );
   }
 

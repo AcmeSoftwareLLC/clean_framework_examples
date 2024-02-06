@@ -25,6 +25,10 @@ class HomeUseCase extends UseCase<HomeEntity> {
       },
     );
   }
+
+  void navigateToPost(String postId) {
+    print('goPostId $postId');
+  }
 }
 
 class HomeDomainToUIModelTransformer

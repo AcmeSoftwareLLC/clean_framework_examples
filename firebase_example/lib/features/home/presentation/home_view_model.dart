@@ -5,10 +5,13 @@ class HomeViewModel extends ViewModel {
   const HomeViewModel({
     required this.userProfileImage,
     required this.userPosts,
+    required this.onPostClicked,
   });
 
   final String userProfileImage;
   final List<UserPostModel> userPosts;
+
+  final void Function(String) onPostClicked;
 
   @override
   List<Object> get props => [

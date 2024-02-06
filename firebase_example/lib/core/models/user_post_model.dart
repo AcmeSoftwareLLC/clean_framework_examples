@@ -8,6 +8,7 @@ class UserPostModel extends Equatable {
     required this.postLikes,
     required this.postComment,
     required this.postDate,
+    this.postId = '',
   });
 
   final UserModel postingUser;
@@ -15,13 +16,16 @@ class UserPostModel extends Equatable {
   final int postLikes;
   final String postComment;
   final String postDate;
+  final String postId;
 
   @override
   List<Object?> get props => [
         postingUser,
+        postImageLink,
         postLikes,
         postComment,
         postDate,
+        postId,
       ];
 
   factory UserPostModel.fromJson(Map<String, dynamic> json) {
@@ -35,6 +39,7 @@ class UserPostModel extends Equatable {
       postLikes: deserializer.getInt('likes'),
       postComment: deserializer.getString('description'),
       postDate: deserializer.getString('date'),
+      postId: deserializer.getString('id'),
     );
   }
 
