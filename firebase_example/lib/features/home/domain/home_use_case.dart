@@ -2,8 +2,6 @@ import 'package:clean_framework/clean_framework.dart';
 import 'package:clean_framework_firebase_example/features/home/domain/home_domain_inputs.dart';
 import 'package:clean_framework_firebase_example/features/home/domain/home_domain_models.dart';
 import 'package:clean_framework_firebase_example/features/home/domain/home_entity.dart';
-import 'package:clean_framework_firebase_example/features/home/models/user_model.dart';
-import 'package:clean_framework_firebase_example/features/home/models/user_post_model.dart';
 
 class HomeUseCase extends UseCase<HomeEntity> {
   HomeUseCase()
@@ -18,7 +16,9 @@ class HomeUseCase extends UseCase<HomeEntity> {
     await request<HomeGetPostsSuccessDomainInput>(
       const HomeGetPostsDomainToGatewayModel(),
       onSuccess: (success) {
-        return entity;
+        return entity = entity.copyWith(
+          userPosts: success.posts,
+        );
       },
       onFailure: (failure) {
         return entity;

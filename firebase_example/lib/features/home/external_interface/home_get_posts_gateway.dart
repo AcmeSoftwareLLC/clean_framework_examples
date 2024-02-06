@@ -17,11 +17,11 @@ class HomeGetPostsGateway extends FirebaseGateway<
   HomeGetPostsSuccessDomainInput onSuccess(
       covariant FirebaseSuccessResponse response) {
     return HomeGetPostsSuccessDomainInput(
-      posts: [
-        UserPostModel.fromJson(
-          response.json,
-        )
-      ],
+      posts: (response.json['list'] as List<Map<String, dynamic>>)
+          .map(
+            (item) => UserPostModel.fromJson(item),
+          )
+          .toList(),
     );
   }
 }
