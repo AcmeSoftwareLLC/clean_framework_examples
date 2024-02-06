@@ -1,8 +1,10 @@
 import 'package:clean_framework/clean_framework.dart';
+import 'package:clean_framework_firebase_example/core/widgets/misc/firebase_toast.dart';
 import 'package:clean_framework_firebase_example/features/create_post/domain/create_post_domain_models.dart';
 import 'package:clean_framework_firebase_example/features/create_post/domain/create_post_use_case.dart';
 import 'package:clean_framework_firebase_example/features/create_post/presentation/create_post_view_model.dart';
 import 'package:clean_framework_firebase_example/providers.dart';
+import 'package:flutter/widgets.dart';
 
 class CreatePostPresenter extends Presenter<CreatePostViewModel,
     CreatePostDomainToUIModel, CreatePostUseCase> {
@@ -31,5 +33,15 @@ class CreatePostPresenter extends Presenter<CreatePostViewModel,
       onPostDateChanged: (value) => useCase.updatePostDate(value),
       onAddPost: useCase.createPost,
     );
+  }
+
+  @override
+  void onDomainModelUpdate(
+      BuildContext context, CreatePostDomainToUIModel domainModel) {
+    if (domainModel.createMessage.isNotEmpty) {
+      const FirebaseToast(
+        title: 'yes',
+      ).show(context);
+    }
   }
 }

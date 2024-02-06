@@ -49,8 +49,10 @@ class CreatePostUseCase extends UseCase<CreatePostEntity> {
           postDate: entity.postDate,
         ),
       ),
-      onSuccess: (success) => entity,
-      onFailure: (failure) => entity,
+      onSuccess: (success) =>
+          entity = entity.copyWith(createMessage: 'Post created successfully.'),
+      onFailure: (failure) =>
+          entity.copyWith(createMessage: 'Could not create post.'),
     );
   }
 }
@@ -67,6 +69,7 @@ class CreatePostDomainToUIModelTransformer extends DomainModelTransformer<
       postDescription: entity.postDescription,
       postLikes: entity.postLikes,
       postDate: entity.postDate,
+      createMessage: entity.createMessage,
     );
   }
 }

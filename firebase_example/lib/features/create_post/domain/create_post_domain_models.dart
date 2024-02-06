@@ -10,6 +10,7 @@ class CreatePostDomainToUIModel extends DomainModel {
     required this.postDescription,
     required this.postLikes,
     required this.postDate,
+    this.createMessage = '',
   });
 
   final String posterUsername;
@@ -21,6 +22,8 @@ class CreatePostDomainToUIModel extends DomainModel {
   final int postLikes;
   final String postDate;
 
+  final String createMessage;
+
   @override
   List<Object?> get props => [
         posterUsername,
@@ -30,41 +33,19 @@ class CreatePostDomainToUIModel extends DomainModel {
         postDescription,
         postLikes,
         postDate,
+        createMessage,
       ];
 }
 
 class CreatePostDomainToGatewayModel extends DomainModel {
   const CreatePostDomainToGatewayModel({
     required this.post,
-    // required this.posterUsername,
-    // required this.posterProfileImage,
-    // required this.posterVerified,
-    // required this.postImage,
-    // required this.postDescription,
-    // required this.postLikes,
-    // required this.postDate,
   });
 
   final UserPostModel post;
 
-  // final String posterUsername;
-  // final String posterProfileImage;
-  // final bool posterVerified;
-
-  // final String postImage;
-  // final String postDescription;
-  // final int postLikes;
-  // final String postDate;
-
   @override
   List<Object?> get props => [
         post,
-        // posterUsername,
-        // posterProfileImage,
-        // posterVerified,
-        // postImage,
-        // postDescription,
-        // postLikes,
-        // postDate,
       ];
 }

@@ -9,6 +9,7 @@ class CreatePostEntity extends Entity {
     this.postDescription = '',
     this.postLikes = 0,
     this.postDate = '',
+    this.createMessage = '',
   });
 
   final String posterUsername;
@@ -20,6 +21,8 @@ class CreatePostEntity extends Entity {
   final int postLikes;
   final String postDate;
 
+  final String createMessage;
+
   @override
   CreatePostEntity copyWith({
     String? posterUsername,
@@ -29,6 +32,7 @@ class CreatePostEntity extends Entity {
     String? postDescription,
     int? postLikes,
     String? postDate,
+    String? createMessage,
   }) {
     return CreatePostEntity(
       posterUsername: posterUsername ?? this.posterUsername,
@@ -38,6 +42,7 @@ class CreatePostEntity extends Entity {
       postDescription: postDescription ?? this.postDescription,
       postLikes: postLikes ?? this.postLikes,
       postDate: postDate ?? this.postDate,
+      createMessage: createMessage ?? this.createMessage,
     );
   }
 
@@ -50,5 +55,6 @@ class CreatePostEntity extends Entity {
         postDescription,
         postLikes,
         postDate,
+        createMessage,
       ];
 }
