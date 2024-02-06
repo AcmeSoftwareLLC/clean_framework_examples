@@ -1,16 +1,17 @@
-# theme_example
+# Clean Framework Firebase Example
 
-A new Flutter project.
+A sample social media-styled app, showcasing how one can use `clean_framework_firestore` alongside `clean_framework` to read and write data to a Firebase Firestore database.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+Firstly, make sure you have a Firebase project created, have enabled the 'Firestore Database' feature, and have installed the Firebase CLI and FlutterFire CLI. If you haven't yet set up the CLI's, follow [this](https://firebase.google.com/docs/flutter/setup?platform=ios) guide.
 
-A few resources to get you started if this is your first Flutter project:
+Once your Firebase project is set up, run this command in the root directory of this project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+```
+flutterfire configure
+```
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+After running this command, select your project and the platforms you want to support from within the command line, and then the project should be ready to run.
+
+From there, create a post from within the app, and you will see it on the homepage!
