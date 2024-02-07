@@ -1,54 +1,39 @@
 import 'package:clean_framework/clean_framework.dart';
+import 'package:clean_framework_firebase_example/core/models/user_model.dart';
+import 'package:clean_framework_firebase_example/core/models/user_post_model.dart';
 
 class ViewPostEntity extends Entity {
   const ViewPostEntity({
-    this.posterUsername = '',
-    this.posterProfileImage = '',
-    this.posterVerified = false,
-    this.postImage = '',
-    this.postDescription = '',
-    this.postLikes = 0,
-    this.postDate = '',
+    this.postId = '',
+    this.post = const UserPostModel(
+        postingUser: UserModel(
+          profileImageLink: '',
+          userName: '',
+          verified: false,
+        ),
+        postImageLink: '',
+        postLikes: 0,
+        postComment: '',
+        postDate: ''),
   });
 
-  final String posterUsername;
-  final String posterProfileImage;
-  final bool posterVerified;
-
-  final String postImage;
-  final String postDescription;
-  final int postLikes;
-  final String postDate;
+  final String postId;
+  final UserPostModel post;
 
   @override
   ViewPostEntity copyWith({
-    String? posterUsername,
-    String? posterProfileImage,
-    bool? posterVerified,
-    String? postImage,
-    String? postDescription,
-    int? postLikes,
-    String? postDate,
+    String? postId,
+    UserPostModel? post,
   }) {
     return ViewPostEntity(
-      posterUsername: posterUsername ?? this.posterUsername,
-      posterProfileImage: posterProfileImage ?? this.posterProfileImage,
-      posterVerified: posterVerified ?? this.posterVerified,
-      postImage: postImage ?? this.postImage,
-      postDescription: postDescription ?? this.postDescription,
-      postLikes: postLikes ?? this.postLikes,
-      postDate: postDate ?? this.postDate,
+      postId: postId ?? this.postId,
+      post: post ?? this.post,
     );
   }
 
   @override
   List<Object?> get props => [
-        posterUsername,
-        posterProfileImage,
-        posterVerified,
-        postImage,
-        postDescription,
-        postLikes,
-        postDate,
+        postId,
+        post,
       ];
 }

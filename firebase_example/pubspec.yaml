@@ -28,9 +28,9 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
-  clean_framework: ^4.0.0-dev.1
-  clean_framework_router: ^0.5.10-dev.1
-  clean_framework_firestore: ^0.5.2-dev.0
+  clean_framework: ^4.0.0
+  clean_framework_router: ^0.5.10
+  clean_framework_firestore: ^0.5.2
 
 
   auto_size_text: 3.0.0
