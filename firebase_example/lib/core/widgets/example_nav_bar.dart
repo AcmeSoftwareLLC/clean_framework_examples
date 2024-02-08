@@ -18,7 +18,7 @@ class ExampleNavBar extends StatelessWidget {
       onDestinationSelected: (int index) => onDestinationSelected(index),
       backgroundColor: FirebaseExampleTheme.of(context).primaryBackground,
       indicatorColor: Colors.transparent,
-      selectedIndex: pageIndex,
+      selectedIndex: pageIndex > 1 ? 0 : pageIndex,
       height: 65.0,
       destinations: const <Widget>[
         NavigationDestination(
@@ -37,8 +37,8 @@ class ExampleNavBar extends StatelessWidget {
           label: '',
         ),
         // NavigationDestination(
-        //   selectedIcon: Icon(Icons.person),
-        //   icon: Icon(Icons.person_outlined),
+        //   selectedIcon: Icon(Icons.view_module),
+        //   icon: Icon(Icons.view_module_outlined),
         //   label: '',
         // ),
       ],

@@ -24,6 +24,7 @@ class HomePresenter
 
   @override
   void onLayoutReady(BuildContext context, HomeUseCase useCase) {
+    useCase.navigateToPost('');
     useCase.getPosts();
   }
 }

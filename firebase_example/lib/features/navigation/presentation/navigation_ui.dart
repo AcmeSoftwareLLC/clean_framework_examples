@@ -5,6 +5,7 @@ import 'package:clean_framework_firebase_example/features/create_post/presentati
 import 'package:clean_framework_firebase_example/features/home/presentation/home_ui.dart';
 import 'package:clean_framework_firebase_example/features/navigation/presentation/navigation_presenter.dart';
 import 'package:clean_framework_firebase_example/features/navigation/presentation/navigation_view_model.dart';
+import 'package:clean_framework_firebase_example/features/view_post/presentation/view_post_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:clean_framework_firebase_example/core/widgets/example_app_bar.dart';
 
@@ -32,16 +33,23 @@ class NavigationUI extends UI<NavigationViewModel> {
         ),
         key: const Key("scaffold"),
         backgroundColor: FirebaseExampleTheme.of(context).primaryBackground,
-        body: _getCurrentUI(viewModel.pageIndex),
+        body: _getCurrentUI(
+          viewModel.pageIndex,
+          args: viewModel.pageArgs,
+        ),
       ),
     );
   }
 
-  Widget _getCurrentUI(int pageIndex) {
+  Widget _getCurrentUI(int pageIndex, {String args = ''}) {
     if (pageIndex == 0) {
       return HomeUI();
     } else if (pageIndex == 1) {
       return CreatePostUI();
+    } else if (pageIndex == 2) {
+      return ViewPostUI(
+        postId: args,
+      );
     } else {
       return HomeUI();
     }

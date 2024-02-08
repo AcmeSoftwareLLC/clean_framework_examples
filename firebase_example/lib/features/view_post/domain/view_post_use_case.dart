@@ -13,13 +13,11 @@ class ViewPostUseCase extends UseCase<ViewPostEntity> {
         );
 
   Future<void> getPost(String postId) async {
-    entity = entity.copyWith(
-      postId: postId,
-    );
-
     await request<ViewPostSuccessDomainInput>(
       ViewPostDomainToGatewayModel(postId: postId),
-      onSuccess: (success) => entity,
+      onSuccess: (success) => entity = entity.copyWith(
+        post: success.post,
+      ),
       onFailure: (failure) => entity,
     );
   }

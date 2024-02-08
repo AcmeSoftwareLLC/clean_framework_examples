@@ -10,16 +10,22 @@ class ViewPostPresenter extends Presenter<ViewPostViewModel,
   ViewPostPresenter({
     required super.builder,
     super.key,
+    this.postId = '',
   }) : super(provider: viewPostUseCaseProvider);
+
+  final String postId;
 
   @override
   void onLayoutReady(BuildContext context, ViewPostUseCase useCase) {
-    useCase.getPost('Eu3JVnrFO3s65rRHFWmG');
+    // useCase.setPost(postId);
+    useCase.getPost(postId);
   }
 
   @override
   ViewPostViewModel createViewModel(
       ViewPostUseCase useCase, ViewPostDomainToUIModel domainModel) {
-    return ViewPostViewModel();
+    return ViewPostViewModel(
+      post: domainModel.post,
+    );
   }
 }

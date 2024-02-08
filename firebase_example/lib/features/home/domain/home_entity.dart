@@ -10,19 +10,23 @@ class HomeEntity extends Entity {
       verified: false,
     ),
     this.userPosts = const <UserPostModel>[],
+    this.clickedPostId = '',
   });
 
   final UserModel user;
   final List<UserPostModel> userPosts;
+  final String clickedPostId;
 
   @override
   HomeEntity copyWith({
     UserModel? user,
     List<UserPostModel>? userPosts,
+    String? clickedPostId,
   }) {
     return HomeEntity(
       user: user ?? this.user,
       userPosts: userPosts ?? this.userPosts,
+      clickedPostId: clickedPostId ?? this.clickedPostId,
     );
   }
 
@@ -30,5 +34,6 @@ class HomeEntity extends Entity {
   List<Object?> get props => [
         user,
         userPosts,
+        clickedPostId,
       ];
 }

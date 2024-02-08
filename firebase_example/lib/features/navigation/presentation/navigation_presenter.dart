@@ -17,6 +17,7 @@ class NavigationPresenter extends Presenter<NavigationViewModel,
       NavigationUseCase useCase, NavigationDomainToUIModel domainModel) {
     return NavigationViewModel(
       pageIndex: domainModel.currentPageIndex,
+      pageArgs: domainModel.currentPageArgs,
       onPageChanged: (index) => useCase.selectPage(index),
     );
   }
