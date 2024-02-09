@@ -35,7 +35,7 @@ class NavigationPostIdDomainInputTransformer extends DomainInputTransformer<
   NavigationEntity transform(
       NavigationEntity entity, NavigationPostIdDomainInput input) {
     return entity.copyWith(
-      currentPageIndex: 2,
+      currentPageIndex: input.postId == '' ? entity.currentPageIndex : 2,
       currentPageArgs: input.postId,
     );
   }

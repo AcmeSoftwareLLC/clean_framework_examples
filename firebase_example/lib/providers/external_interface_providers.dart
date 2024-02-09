@@ -8,5 +8,6 @@ final firebaseExternalInterfaceProvider = ExternalInterfaceProvider(
     getPostsGatewayProvider,
     createPostGatewayProvider,
     viewPostGatewayProvider,
+    viewPostCommentGatewayProvider,
   ],
 );

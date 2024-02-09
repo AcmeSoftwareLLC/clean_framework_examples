@@ -31,7 +31,7 @@ dependencies:
   clean_framework: ^4.0.0
   clean_framework_router: ^0.5.10
   clean_framework_firestore: ^0.5.2
-
+  cloud_firestore: ^4.15.4
 
   auto_size_text: 3.0.0
   cached_network_image: 3.2.1

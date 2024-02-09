@@ -72,6 +72,7 @@ class CreatePostUseCase extends UseCase<CreatePostEntity> {
               profileImageLink: entity.posterProfileImage,
               userName: entity.posterUsername,
               verified: entity.posterVerified),
+          comments: const [],
           postImageLink: entity.postImage,
           postLikes: entity.postLikes,
           postComment: entity.postDescription,

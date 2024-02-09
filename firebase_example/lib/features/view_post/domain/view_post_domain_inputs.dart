@@ -8,3 +8,7 @@ class ViewPostSuccessDomainInput extends SuccessDomainInput {
 
   final UserPostModel post;
 }
+
+class PostCommentSuccessDomainInput extends SuccessDomainInput {
+  PostCommentSuccessDomainInput();
+}

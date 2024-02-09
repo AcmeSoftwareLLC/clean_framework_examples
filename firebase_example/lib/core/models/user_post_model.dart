@@ -1,9 +1,11 @@
 import 'package:clean_framework/clean_framework.dart';
+import 'package:clean_framework_firebase_example/core/models/user_comment_model.dart';
 import 'package:clean_framework_firebase_example/core/models/user_model.dart';
 
 class UserPostModel extends Equatable {
   const UserPostModel({
     required this.postingUser,
+    required this.comments,
     required this.postImageLink,
     required this.postLikes,
     required this.postComment,
@@ -12,6 +14,7 @@ class UserPostModel extends Equatable {
   });
 
   final UserModel postingUser;
+  final List<UserCommentModel> comments;
   final String postImageLink;
   final int postLikes;
   final String postComment;
@@ -21,6 +24,7 @@ class UserPostModel extends Equatable {
   @override
   List<Object?> get props => [
         postingUser,
+        comments,
         postImageLink,
         postLikes,
         postComment,
@@ -35,6 +39,10 @@ class UserPostModel extends Equatable {
       postingUser: UserModel.fromJson(
         json['poster'],
       ),
+      comments: deserializer.getList(
+        'comments',
+        converter: UserCommentModel.fromJson,
+      ),
       postImageLink: deserializer.getString('image'),
       postLikes: deserializer.getInt('likes'),
       postComment: deserializer.getString('description'),
@@ -44,6 +52,9 @@ class UserPostModel extends Equatable {
   }
 
   Map<String, dynamic> toJson() => {
+        'comments': comments.toList().map(
+              (e) => e.toJson(),
+            ),
         'date': postDate,
         'description': postComment,
         'image': postImageLink,

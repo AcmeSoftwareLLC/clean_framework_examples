@@ -10,10 +10,12 @@ class ImagePostCard extends StatelessWidget {
   const ImagePostCard({
     super.key,
     required this.post,
+    required this.showComments,
     required this.onPostClicked,
   });
 
   final UserPostModel post;
+  final bool showComments;
 
   final void Function() onPostClicked;
 
@@ -36,12 +38,9 @@ class ImagePostCard extends StatelessWidget {
                 width: 35.0,
                 height: 35.0,
               ),
-              InkWell(
-                onTap: onPostClicked,
-                child: Text(
-                  post.postingUser.userName,
-                  style: FirebaseExampleTheme.of(context).bodyMedium,
-                ),
+              Text(
+                post.postingUser.userName,
+                style: FirebaseExampleTheme.of(context).bodyMedium,
               ),
               if (post.postingUser.verified)
                 const SizedBox(
@@ -98,9 +97,7 @@ class ImagePostCard extends StatelessWidget {
                           color: FirebaseExampleTheme.of(context).primaryText,
                           size: 24.0,
                         ),
-                        onPressed: () {
-                          print('Comment button pressed ...');
-                        },
+                        onPressed: onPostClicked,
                       ),
                       ImagePostIconButton(
                         borderRadius: 20.0,
@@ -168,14 +165,40 @@ class ImagePostCard extends StatelessWidget {
                         ),
                       ],
                     ),
-                    // RichText(
-                    //   text: TextSpan(
-                    //     text: 'View 16 comments',
-                    //     style: FirebaseExampleTheme.of(context).bodyMedium,
-                    //   ),
-                    // ),
-                    // // const PostCommentWidget(
-                    //     userName: 'test_user', comment: 'test comment'),
+                    if (!showComments)
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          InkWell(
+                            onTap: onPostClicked,
+                            child: RichText(
+                              text: TextSpan(
+                                text: post.comments.isNotEmpty
+                                    ? 'View all ${post.comments.length} comments'
+                                    : 'View post',
+                                style:
+                                    FirebaseExampleTheme.of(context).bodyMedium,
+                              ),
+                            ),
+                          ),
+                          if (post.comments.isNotEmpty)
+                            ImagePostCommentWidget(
+                              userName: post
+                                  .comments[post.comments.length - 1].userName,
+                              comment: post
+                                  .comments[post.comments.length - 1].message,
+                            ),
+                        ],
+                      )
+                    else
+                      ...post.comments.map(
+                        (e) {
+                          return ImagePostCommentWidget(
+                            userName: e.userName,
+                            comment: e.message,
+                          );
+                        },
+                      ),
                     const SizedBox(
                       height: 4.0,
                     ),

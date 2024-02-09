@@ -28,6 +28,7 @@ class HomeUI extends UI<HomeViewModel> {
                   children: [
                     ImagePostCard(
                       post: post,
+                      showComments: false,
                       onPostClicked: () => viewModel.onPostClicked(
                         post.postId,
                       ),
