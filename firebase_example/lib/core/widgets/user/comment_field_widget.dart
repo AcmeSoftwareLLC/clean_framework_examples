@@ -25,12 +25,14 @@ class CommentFieldWidget extends StatelessWidget {
         style: FirebaseExampleTheme.of(context).labelSmall,
         onChanged: onChanged,
         decoration: InputDecoration(
+          isDense: true,
           icon: iconWidget,
           border: const OutlineInputBorder(
             borderRadius: BorderRadius.all(
               Radius.circular(30.0),
             ),
           ),
+          hintFadeDuration: Duration(milliseconds: 150),
           suffixIcon: ImagePostIconButton(
             buttonSize: 45.0,
             borderRadius: 30.0,
@@ -42,7 +44,7 @@ class CommentFieldWidget extends StatelessWidget {
             fillColor: Colors.blue,
             onPressed: onSend,
           ),
-          labelText: 'Leave a comment as firebase_example...',
+          hintText: 'Leave a comment as firebase_example...',
           floatingLabelBehavior: FloatingLabelBehavior.never,
         ),
       ),

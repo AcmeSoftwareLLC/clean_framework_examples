@@ -93,7 +93,9 @@ class ImagePostCard extends StatelessWidget {
                         fillColor:
                             FirebaseExampleTheme.of(context).primaryBackground,
                         icon: Icon(
-                          Icons.chat_bubble_outline_rounded,
+                          showComments
+                              ? Icons.chat_bubble
+                              : Icons.chat_bubble_outline_rounded,
                           color: FirebaseExampleTheme.of(context).primaryText,
                           size: 24.0,
                         ),
