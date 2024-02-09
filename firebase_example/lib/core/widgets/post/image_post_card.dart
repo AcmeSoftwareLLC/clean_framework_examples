@@ -31,27 +31,47 @@ class ImagePostCard extends StatelessWidget {
         children: [
           Row(
             crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              ProfileIconWidget(
-                user: post.postingUser,
-                width: 35.0,
-                height: 35.0,
+              Row(
+                children: [
+                  ProfileIconWidget(
+                    user: post.postingUser,
+                    width: 35.0,
+                    height: 35.0,
+                  ),
+                  Text(
+                    post.postingUser.userName,
+                    style: FirebaseExampleTheme.of(context).bodyMedium,
+                  ),
+                  if (post.postingUser.verified)
+                    const SizedBox(
+                      width: 6.0,
+                    ),
+                  if (post.postingUser.verified)
+                    const Icon(
+                      Icons.verified,
+                      color: Colors.blue,
+                      size: 16.0,
+                    ),
+                ],
               ),
-              Text(
-                post.postingUser.userName,
-                style: FirebaseExampleTheme.of(context).bodyMedium,
+              Row(
+                children: [
+                  ImagePostIconButton(
+                    borderRadius: 20.0,
+                    buttonSize: 40.0,
+                    fillColor:
+                        FirebaseExampleTheme.of(context).primaryBackground,
+                    icon: Icon(
+                      Icons.more_horiz,
+                      color: FirebaseExampleTheme.of(context).primaryText,
+                      size: 24.0,
+                    ),
+                    onPressed: () {},
+                  ),
+                ],
               ),
-              if (post.postingUser.verified)
-                const SizedBox(
-                  width: 6.0,
-                ),
-              if (post.postingUser.verified)
-                const Icon(
-                  Icons.verified,
-                  color: Colors.blue,
-                  size: 16.0,
-                ),
             ],
           ),
           ClipRRect(

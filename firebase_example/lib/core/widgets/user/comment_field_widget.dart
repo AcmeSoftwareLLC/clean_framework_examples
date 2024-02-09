@@ -32,7 +32,7 @@ class CommentFieldWidget extends StatelessWidget {
               Radius.circular(30.0),
             ),
           ),
-          hintFadeDuration: Duration(milliseconds: 150),
+          hintFadeDuration: const Duration(milliseconds: 150),
           suffixIcon: ImagePostIconButton(
             buttonSize: 45.0,
             borderRadius: 30.0,

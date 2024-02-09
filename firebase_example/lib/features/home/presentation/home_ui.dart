@@ -2,8 +2,8 @@ import 'package:clean_framework/clean_framework.dart';
 import 'package:clean_framework_firebase_example/core/widgets/misc/firebase_loading_widget.dart';
 import 'package:clean_framework_firebase_example/features/home/domain/home_entity.dart';
 import 'package:flutter/material.dart';
-import 'package:clean_framework_firebase_example/core/widgets/post/image_post_card.dart';
 import 'package:clean_framework_firebase_example/features/home/presentation/home_presenter.dart';
+import 'package:clean_framework_firebase_example/core/widgets/post/image_post_card.dart';
 import 'package:clean_framework_firebase_example/features/home/presentation/home_view_model.dart';
 
 class HomeUI extends UI<HomeViewModel> {
