@@ -1,4 +1,5 @@
 import 'package:clean_framework/clean_framework.dart';
+import 'package:clean_framework_firebase_example/core/widgets/misc/firebase_loading_widget.dart';
 import 'package:clean_framework_firebase_example/core/widgets/post/image_post_card.dart';
 import 'package:clean_framework_firebase_example/core/widgets/user/comment_field_widget.dart';
 import 'package:clean_framework_firebase_example/core/widgets/user/profile_icon_widget.dart';
@@ -57,6 +58,6 @@ class ViewPostUI extends UI<ViewPostViewModel> {
               ),
             ),
           )
-        : Container();
+        : const FirebaseLoadingWidget();
   }
 }

@@ -16,6 +16,7 @@ class HomePresenter
   HomeViewModel createViewModel(
       HomeUseCase useCase, HomeDomainToUIModel domainModel) {
     return HomeViewModel(
+      loadingState: domainModel.loadingState,
       userProfileImage: domainModel.user.profileImageLink,
       userPosts: domainModel.userPosts,
       onPostClicked: (id) => useCase.navigateToPost(id),

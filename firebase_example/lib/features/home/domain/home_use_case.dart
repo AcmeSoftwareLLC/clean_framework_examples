@@ -13,15 +13,20 @@ class HomeUseCase extends UseCase<HomeEntity> {
         );
 
   Future<void> getPosts() async {
+    entity = entity.copyWith(loadingState: PostsLoadState.loading);
+
     await request<HomeGetPostsSuccessDomainInput>(
       const HomeGetPostsDomainToGatewayModel(),
       onSuccess: (success) {
         return entity = entity.copyWith(
           userPosts: success.posts,
+          loadingState: PostsLoadState.finished,
         );
       },
       onFailure: (failure) {
-        return entity;
+        return entity.copyWith(
+          loadingState: PostsLoadState.error,
+        );
       },
     );
   }
@@ -39,6 +44,7 @@ class HomeDomainToUIModelTransformer
   HomeDomainToUIModel transform(HomeEntity entity) {
     return HomeDomainToUIModel(
       user: entity.user,
+      loadingState: entity.loadingState,
       userPosts: entity.userPosts,
     );
   }
