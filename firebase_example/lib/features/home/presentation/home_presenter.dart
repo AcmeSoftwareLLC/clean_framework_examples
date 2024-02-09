@@ -20,6 +20,7 @@ class HomePresenter
       userProfileImage: domainModel.user.profileImageLink,
       userPosts: domainModel.userPosts,
       onPostClicked: (id) => useCase.navigateToPost(id),
+      onDeletePost: (id) => useCase.deletePost(id),
     );
   }
 

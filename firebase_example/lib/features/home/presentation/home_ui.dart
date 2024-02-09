@@ -35,6 +35,9 @@ class HomeUI extends UI<HomeViewModel> {
                             onPostClicked: () => viewModel.onPostClicked(
                               post.postId,
                             ),
+                            onDeleteClicked: () => viewModel.onDeletePost(
+                              post.postId,
+                            ),
                           ),
                         ],
                       ),

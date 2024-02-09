@@ -36,6 +36,10 @@ class HomeUseCase extends UseCase<HomeEntity> {
       clickedPostId: postId,
     );
   }
+
+  void deletePost(String postId) {
+    print('delete post $postId');
+  }
 }
 
 class HomeDomainToUIModelTransformer

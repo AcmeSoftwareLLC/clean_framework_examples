@@ -40,6 +40,7 @@ class ViewPostUI extends UI<ViewPostViewModel> {
                           post: viewModel.post,
                           showComments: true,
                           onPostClicked: () {},
+                          onDeleteClicked: () {},
                         ),
                         CommentFieldWidget(
                           iconWidget: ProfileIconWidget(

@@ -1,5 +1,6 @@
 import 'package:clean_framework_firebase_example/core/widgets/post/image_post_icon_button.dart';
 import 'package:clean_framework_firebase_example/core/theme/firebase_example_theme.dart';
+import 'package:clean_framework_router/clean_framework_router.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:clean_framework_firebase_example/core/widgets/post/image_post_comment_widget.dart';
@@ -12,12 +13,14 @@ class ImagePostCard extends StatelessWidget {
     required this.post,
     required this.showComments,
     required this.onPostClicked,
+    required this.onDeleteClicked,
   });
 
   final UserPostModel post;
   final bool showComments;
 
   final void Function() onPostClicked;
+  final void Function() onDeleteClicked;
 
   @override
   Widget build(BuildContext context) {
@@ -68,7 +71,34 @@ class ImagePostCard extends StatelessWidget {
                       color: FirebaseExampleTheme.of(context).primaryText,
                       size: 24.0,
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      showModalBottomSheet(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return Container(
+                            height: 800,
+                            color: Colors.blueGrey,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.stretch,
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Center(
+                                  child: Column(
+                                    children: [
+                                      InkWell(
+                                        child: const Text('Delete'),
+                                        onTap: () => context.router.pop(),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          );
+                        },
+                      );
+                    },
                   ),
                 ],
               ),

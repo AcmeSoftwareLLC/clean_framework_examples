@@ -8,6 +8,7 @@ class HomeViewModel extends ViewModel {
     required this.userProfileImage,
     required this.userPosts,
     required this.onPostClicked,
+    required this.onDeletePost,
   });
 
   final PostsLoadState loadingState;
@@ -16,6 +17,7 @@ class HomeViewModel extends ViewModel {
   final List<UserPostModel> userPosts;
 
   final void Function(String) onPostClicked;
+  final void Function(String) onDeletePost;
 
   @override
   List<Object> get props => [
