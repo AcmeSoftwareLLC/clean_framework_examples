@@ -169,18 +169,18 @@ class ImagePostCard extends StatelessWidget {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          InkWell(
-                            onTap: onPostClicked,
-                            child: RichText(
-                              text: TextSpan(
-                                text: post.comments.isNotEmpty
-                                    ? 'View all ${post.comments.length} comments'
-                                    : 'View post',
-                                style:
-                                    FirebaseExampleTheme.of(context).bodyMedium,
+                          if (post.comments.isNotEmpty)
+                            InkWell(
+                              onTap: onPostClicked,
+                              child: RichText(
+                                text: TextSpan(
+                                  text:
+                                      'View all ${post.comments.length} comments',
+                                  style: FirebaseExampleTheme.of(context)
+                                      .bodyMedium,
+                                ),
                               ),
                             ),
-                          ),
                           if (post.comments.isNotEmpty)
                             ImagePostCommentWidget(
                               userName: post

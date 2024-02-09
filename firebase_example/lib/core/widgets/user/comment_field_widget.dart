@@ -42,7 +42,7 @@ class CommentFieldWidget extends StatelessWidget {
             fillColor: Colors.blue,
             onPressed: onSend,
           ),
-          labelText: 'Leave a comment as test_user...',
+          labelText: 'Leave a comment as firebase_example...',
           floatingLabelBehavior: FloatingLabelBehavior.never,
         ),
       ),

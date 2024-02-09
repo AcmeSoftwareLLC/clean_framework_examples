@@ -13,12 +13,17 @@ class ViewPostUseCase extends UseCase<ViewPostEntity> {
           ],
         );
 
-  Future<void> getPost(String postId) async {
+  Future<void> getPost(String postId, {bool resetLoadState = true}) async {
     entity = entity.copyWith(
       postId: postId,
-      loadState: PostLoadState.loading,
       commentState: PostCommentState.none,
     );
+
+    if (resetLoadState) {
+      entity = entity.copyWith(
+        loadState: PostLoadState.loading,
+      );
+    }
 
     await request<ViewPostSuccessDomainInput>(
       ViewPostDomainToGatewayModel(postId: postId),
@@ -48,7 +53,7 @@ class ViewPostUseCase extends UseCase<ViewPostEntity> {
       ViewPostCommentDomainToGatewayModel(
         postId: entity.postId,
         comment: UserCommentModel(
-          userName: 'test_user',
+          userName: 'firebase_example',
           message: entity.userComment,
         ),
       ),
@@ -62,7 +67,10 @@ class ViewPostUseCase extends UseCase<ViewPostEntity> {
       ),
     );
 
-    getPost(entity.postId);
+    getPost(
+      entity.postId,
+      resetLoadState: false,
+    );
   }
 }
 
