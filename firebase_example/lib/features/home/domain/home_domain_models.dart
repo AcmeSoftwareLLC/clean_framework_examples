@@ -7,17 +7,20 @@ class HomeDomainToUIModel extends DomainModel {
   const HomeDomainToUIModel({
     required this.user,
     required this.loadingState,
+    required this.deletePostState,
     required this.userPosts,
   });
 
   final UserModel user;
-  final PostsLoadState loadingState;
+  final LoadPostsState loadingState;
+  final DeletePostState deletePostState;
   final List<UserPostModel> userPosts;
 
   @override
   List<Object?> get props => [
         user,
         loadingState,
+        deletePostState,
         userPosts,
       ];
 }

@@ -11,7 +11,7 @@ class HomeViewModel extends ViewModel {
     required this.onDeletePost,
   });
 
-  final PostsLoadState loadingState;
+  final LoadPostsState loadingState;
 
   final String userProfileImage;
   final List<UserPostModel> userPosts;

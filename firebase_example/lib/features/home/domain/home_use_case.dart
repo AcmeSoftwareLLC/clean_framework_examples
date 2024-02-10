@@ -13,19 +13,22 @@ class HomeUseCase extends UseCase<HomeEntity> {
         );
 
   Future<void> getPosts() async {
-    entity = entity.copyWith(loadingState: PostsLoadState.loading);
+    entity = entity.copyWith(
+      loadingState: LoadPostsState.loading,
+      deletePostState: DeletePostState.none,
+    );
 
     await request<HomeGetPostsSuccessDomainInput>(
       const HomeGetPostsDomainToGatewayModel(),
       onSuccess: (success) {
         return entity = entity.copyWith(
           userPosts: success.posts,
-          loadingState: PostsLoadState.finished,
+          loadingState: LoadPostsState.finished,
         );
       },
       onFailure: (failure) {
         return entity.copyWith(
-          loadingState: PostsLoadState.error,
+          loadingState: LoadPostsState.error,
         );
       },
     );
@@ -42,8 +45,12 @@ class HomeUseCase extends UseCase<HomeEntity> {
       HomeDeletePostDomainToGatewayModel(
         id: postId,
       ),
-      onSuccess: (success) => entity,
-      onFailure: (failure) => entity,
+      onSuccess: (success) => entity.copyWith(
+        deletePostState: DeletePostState.success,
+      ),
+      onFailure: (failure) => entity.copyWith(
+        deletePostState: DeletePostState.failure,
+      ),
     );
     await getPosts();
   }
@@ -56,6 +63,7 @@ class HomeDomainToUIModelTransformer
     return HomeDomainToUIModel(
       user: entity.user,
       loadingState: entity.loadingState,
+      deletePostState: entity.deletePostState,
       userPosts: entity.userPosts,
     );
   }

@@ -28,7 +28,7 @@ class HomeUI extends UI<HomeViewModel> {
               ...viewModel.userPosts.map(
                 (post) => Column(
                   children: [
-                    if (viewModel.loadingState != PostsLoadState.finished)
+                    if (viewModel.loadingState != LoadPostsState.finished)
                       const FirebaseLoadingWidget(),
                     ImagePostCard(
                       post: post,

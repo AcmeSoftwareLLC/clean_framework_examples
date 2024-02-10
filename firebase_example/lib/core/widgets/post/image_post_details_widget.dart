@@ -1,4 +1,5 @@
 import 'package:clean_framework_firebase_example/core/theme/firebase_example_theme.dart';
+import 'package:clean_framework_router/clean_framework_router.dart';
 import 'package:flutter/material.dart';
 
 class ImagePostDetailsWidget extends StatelessWidget {
@@ -13,7 +14,7 @@ class ImagePostDetailsWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 250,
-      color: Color.fromARGB(95, 255, 255, 255),
+      color: Colors.white,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -52,7 +53,10 @@ class ImagePostDetailsWidget extends StatelessWidget {
                         ),
                       ),
                     ),
-                    onPressed: onDeleteClicked,
+                    onPressed: () {
+                      onDeleteClicked();
+                      context.router.pop();
+                    },
                     child: Column(
                       children: [
                         Row(
