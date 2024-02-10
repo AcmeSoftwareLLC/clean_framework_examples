@@ -18,35 +18,35 @@ class HomeUI extends UI<HomeViewModel> {
 
   @override
   Widget build(BuildContext context, HomeViewModel viewModel) {
-    return viewModel.loadingState == PostsLoadState.finished
-        ? GestureDetector(
-            child: SafeArea(
-              top: true,
-              child: SingleChildScrollView(
-                child: Column(
-                  mainAxisSize: MainAxisSize.max,
+    return GestureDetector(
+      child: SafeArea(
+        top: true,
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              ...viewModel.userPosts.map(
+                (post) => Column(
                   children: [
-                    ...viewModel.userPosts.map(
-                      (post) => Column(
-                        children: [
-                          ImagePostCard(
-                            post: post,
-                            showComments: false,
-                            onPostClicked: () => viewModel.onPostClicked(
-                              post.postId,
-                            ),
-                            onDeleteClicked: () => viewModel.onDeletePost(
-                              post.postId,
-                            ),
-                          ),
-                        ],
+                    if (viewModel.loadingState != PostsLoadState.finished)
+                      const FirebaseLoadingWidget(),
+                    ImagePostCard(
+                      post: post,
+                      showComments: false,
+                      onPostClicked: () => viewModel.onPostClicked(
+                        post.postId,
+                      ),
+                      onDeleteClicked: () => viewModel.onDeletePost(
+                        post.postId,
                       ),
                     ),
                   ],
                 ),
               ),
-            ),
-          )
-        : const FirebaseLoadingWidget();
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }

@@ -37,8 +37,15 @@ class HomeUseCase extends UseCase<HomeEntity> {
     );
   }
 
-  void deletePost(String postId) {
-    print('delete post $postId');
+  Future<void> deletePost(String postId) async {
+    await request<HomeDeletePostSuccessDomainInput>(
+      HomeDeletePostDomainToGatewayModel(
+        id: postId,
+      ),
+      onSuccess: (success) => entity,
+      onFailure: (failure) => entity,
+    );
+    await getPosts();
   }
 }
 

@@ -1,6 +1,6 @@
+import 'package:clean_framework_firebase_example/core/widgets/post/image_post_details_widget.dart';
 import 'package:clean_framework_firebase_example/core/widgets/post/image_post_icon_button.dart';
 import 'package:clean_framework_firebase_example/core/theme/firebase_example_theme.dart';
-import 'package:clean_framework_router/clean_framework_router.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:clean_framework_firebase_example/core/widgets/post/image_post_comment_widget.dart';
@@ -75,26 +75,8 @@ class ImagePostCard extends StatelessWidget {
                       showModalBottomSheet(
                         context: context,
                         builder: (BuildContext context) {
-                          return Container(
-                            height: 800,
-                            color: Colors.blueGrey,
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.stretch,
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                Center(
-                                  child: Column(
-                                    children: [
-                                      InkWell(
-                                        child: const Text('Delete'),
-                                        onTap: () => context.router.pop(),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ],
-                            ),
+                          return ImagePostDetailsWidget(
+                            onDeleteClicked: onDeleteClicked,
                           );
                         },
                       );

@@ -28,3 +28,16 @@ class HomeGetPostsDomainToGatewayModel extends DomainModel {
   @override
   List<Object?> get props => [];
 }
+
+class HomeDeletePostDomainToGatewayModel extends DomainModel {
+  const HomeDeletePostDomainToGatewayModel({
+    required this.id,
+  });
+
+  final String id;
+
+  @override
+  List<Object?> get props => [
+        id,
+      ];
+}

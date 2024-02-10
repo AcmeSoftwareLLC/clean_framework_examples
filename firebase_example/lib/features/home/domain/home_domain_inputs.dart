@@ -8,3 +8,7 @@ class HomeGetPostsSuccessDomainInput extends SuccessDomainInput {
 
   final List<UserPostModel> posts;
 }
+
+class HomeDeletePostSuccessDomainInput extends SuccessDomainInput {
+  HomeDeletePostSuccessDomainInput();
+}

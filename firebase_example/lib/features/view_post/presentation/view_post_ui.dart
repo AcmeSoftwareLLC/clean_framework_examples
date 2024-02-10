@@ -26,39 +26,39 @@ class ViewPostUI extends UI<ViewPostViewModel> {
 
   @override
   Widget build(BuildContext context, ViewPostViewModel viewModel) {
-    return viewModel.loadState == PostLoadState.successful
-        ? GestureDetector(
-            child: SafeArea(
-              top: true,
-              child: SingleChildScrollView(
-                child: Column(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Column(
-                      children: [
-                        ImagePostCard(
-                          post: viewModel.post,
-                          showComments: true,
-                          onPostClicked: () {},
-                          onDeleteClicked: () {},
-                        ),
-                        CommentFieldWidget(
-                          iconWidget: ProfileIconWidget(
-                            user: viewModel.post.postingUser,
-                            width: 40.0,
-                            height: 40.0,
-                          ),
-                          onChanged: viewModel.onCommentChanged,
-                          onSend: viewModel.onSendComment,
-                          value: viewModel.userComment,
-                        )
-                      ],
+    return GestureDetector(
+      child: SafeArea(
+        top: true,
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              if (viewModel.loadState != PostLoadState.successful)
+                const FirebaseLoadingWidget(),
+              Column(
+                children: [
+                  ImagePostCard(
+                    post: viewModel.post,
+                    showComments: true,
+                    onPostClicked: () {},
+                    onDeleteClicked: () {},
+                  ),
+                  CommentFieldWidget(
+                    iconWidget: ProfileIconWidget(
+                      user: viewModel.post.postingUser,
+                      width: 40.0,
+                      height: 40.0,
                     ),
-                  ],
-                ),
+                    onChanged: viewModel.onCommentChanged,
+                    onSend: viewModel.onSendComment,
+                    value: viewModel.userComment,
+                  )
+                ],
               ),
-            ),
-          )
-        : const FirebaseLoadingWidget();
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }
