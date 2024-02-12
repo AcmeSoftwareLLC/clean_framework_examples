@@ -21,22 +21,20 @@ class NavigationUI extends UI<NavigationViewModel> {
 
   @override
   Widget build(BuildContext context, NavigationViewModel viewModel) {
-    return GestureDetector(
-      child: Scaffold(
-        appBar: const ExampleAppBar(
-          pageName: 'Clean Framework Firebase',
-        ),
-        bottomNavigationBar: ExampleNavBar(
-          pageIndex: viewModel.pageIndex,
-          onDestinationSelected: (destination) =>
-              viewModel.onPageChanged(destination),
-        ),
-        key: const Key("scaffold"),
-        backgroundColor: FirebaseExampleTheme.of(context).primaryBackground,
-        body: _getCurrentUI(
-          viewModel.pageIndex,
-          args: viewModel.pageArgs,
-        ),
+    return Scaffold(
+      appBar: const ExampleAppBar(
+        pageName: 'Clean Framework Firebase',
+      ),
+      bottomNavigationBar: ExampleNavBar(
+        pageIndex: viewModel.pageIndex,
+        onDestinationSelected: (destination) =>
+            viewModel.onPageChanged(destination),
+      ),
+      key: const Key("scaffold"),
+      backgroundColor: FirebaseExampleTheme.of(context).primaryBackground,
+      body: _getCurrentUI(
+        viewModel.pageIndex,
+        args: viewModel.pageArgs,
       ),
     );
   }
