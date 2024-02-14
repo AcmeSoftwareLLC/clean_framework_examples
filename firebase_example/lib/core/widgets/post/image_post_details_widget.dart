@@ -1,5 +1,7 @@
 import 'package:clean_framework_firebase_example/core/theme/firebase_example_theme.dart';
+import 'package:clean_framework_firebase_example/core/widgets/misc/misc_widgets.dart';
 import 'package:clean_framework_router/clean_framework_router.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 class ImagePostDetailsWidget extends StatelessWidget {
@@ -13,79 +15,83 @@ class ImagePostDetailsWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(30.0),
+        color: Colors.white,
+      ),
       height: 250,
-      color: Colors.white,
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisSize: MainAxisSize.min,
         children: [
+          const SizedBox(
+            height: 16.0,
+          ),
+          Text(
+            'Post Options',
+            style: FirebaseExampleTheme.of(context).headlineSmall,
+          ),
+          const SizedBox(
+            height: 32.0,
+          ),
           Center(
-            child: Container(
-              alignment: AlignmentDirectional.center,
-              width: 250,
-              height: 200,
-              decoration: const BoxDecoration(
-                borderRadius: BorderRadius.all(
-                  Radius.circular(
-                    10.0,
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsetsDirectional.fromSTEB(
+                    0.0,
+                    0.0,
+                    0.0,
+                    16.0,
+                  ),
+                  child: CustomButtonWidget(
+                    onPressed: () {},
+                    text: 'Edit',
+                    iconData: Icons.edit,
+                    options: CustomButtonOptions(
+                      width: 175.0,
+                      height: 45.0,
+                      color: FirebaseExampleTheme.of(context).secondary,
+                      textStyle:
+                          FirebaseExampleTheme.of(context).bodyMedium.override(
+                                fontFamily: 'Readex Pro',
+                                color: Colors.white,
+                              ),
+                      // elevation: 15.0,
+                      borderRadius: BorderRadius.circular(5.0),
+                    ),
                   ),
                 ),
-                boxShadow: [
-                  BoxShadow(
-                    color: Color.fromARGB(255, 239, 227, 227),
-                  )
-                ],
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  TextButton(
-                    style: const ButtonStyle(
-                      shape: MaterialStatePropertyAll(
-                        RoundedRectangleBorder(
-                          borderRadius: BorderRadius.vertical(
-                            top: Radius.circular(
-                              0.0,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
+                Padding(
+                  padding: const EdgeInsetsDirectional.fromSTEB(
+                    0.0,
+                    0.0,
+                    0.0,
+                    16.0,
+                  ),
+                  child: CustomButtonWidget(
                     onPressed: () {
                       onDeleteClicked();
                       context.router.pop();
                     },
-                    child: Column(
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              'Delete',
-                              style:
-                                  FirebaseExampleTheme.of(context).bodyMedium,
-                            ),
-                            const Icon(
-                              Icons.delete,
-                              color: Colors.black,
-                            ),
-                          ],
-                        ),
-                        const SizedBox(
-                          height: 10.0,
-                        ),
-                      ],
+                    text: 'Delete',
+                    iconData: Icons.delete,
+                    options: CustomButtonOptions(
+                      width: 175.0,
+                      height: 45.0,
+                      color: FirebaseExampleTheme.of(context).error,
+                      textStyle:
+                          FirebaseExampleTheme.of(context).bodyMedium.override(
+                                fontFamily: 'Readex Pro',
+                                color: Colors.white,
+                              ),
+                      // elevation: 15.0,
+                      borderRadius: BorderRadius.circular(5.0),
                     ),
                   ),
-                  const Divider(
-                    height: 0.0,
-                    thickness: 1.0,
-                    color: Colors.grey,
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ],

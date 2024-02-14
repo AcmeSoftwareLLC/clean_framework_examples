@@ -39,7 +39,11 @@ class CreatePostUI extends UI<CreatePostViewModel> {
               ),
               Padding(
                 padding: const EdgeInsetsDirectional.fromSTEB(
-                    16.0, 16.0, 16.0, 16.0),
+                  16.0,
+                  16.0,
+                  16.0,
+                  16.0,
+                ),
                 child: TextField(
                   style: FirebaseExampleTheme.of(context).bodySmall,
                   onChanged: viewModel.onUsernameChanged,
@@ -51,7 +55,11 @@ class CreatePostUI extends UI<CreatePostViewModel> {
               ),
               Padding(
                 padding: const EdgeInsetsDirectional.fromSTEB(
-                    16.0, 16.0, 16.0, 16.0),
+                  16.0,
+                  16.0,
+                  16.0,
+                  16.0,
+                ),
                 child: TextField(
                   style: FirebaseExampleTheme.of(context).bodySmall,
                   onChanged: viewModel.onProfileImageChanged,
@@ -145,18 +153,26 @@ class CreatePostUI extends UI<CreatePostViewModel> {
                 options: CustomButtonOptions(
                   width: 175.0,
                   height: 50.0,
-                  padding:
-                      const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                  iconPadding:
-                      const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                  ),
+                  iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                  ),
                   color: FirebaseExampleTheme.of(context).primary,
                   textStyle:
-                      FirebaseExampleTheme.of(context).bodySmall.override(
+                      FirebaseExampleTheme.of(context).bodyMedium.override(
                             fontFamily: 'Readex Pro',
                             color: Colors.white,
                           ),
                   elevation: 0.0,
-                  borderRadius: BorderRadius.circular(20.0),
+                  borderRadius: BorderRadius.circular(5.0),
                 ),
               ),
             ],

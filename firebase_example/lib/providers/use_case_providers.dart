@@ -16,20 +16,22 @@ final createPostUseCaseProvider = UseCaseProvider(
 );
 
 final navigationUseCaseProvider =
-    UseCaseProvider<NavigationEntity, NavigationUseCase>(NavigationUseCase.new,
-        (bridge) {
-  bridge.connect(
-    homeUseCaseProvider,
-    selector: (e) => e.clickedPostId,
-    (oldClickedPost, newClickedPost) {
-      bridge.useCase.setInput(
-        NavigationPostIdDomainInput(
-          postId: newClickedPost,
-        ),
-      );
-    },
-  );
-});
+    UseCaseProvider<NavigationEntity, NavigationUseCase>(
+  NavigationUseCase.new,
+  (bridge) {
+    bridge.connect(
+      homeUseCaseProvider,
+      selector: (e) => e.clickedPostId,
+      (oldClickedPost, newClickedPost) {
+        bridge.useCase.setInput(
+          NavigationPostIdDomainInput(
+            postId: newClickedPost,
+          ),
+        );
+      },
+    );
+  },
+);
 
 final viewPostUseCaseProvider = UseCaseProvider(
   ViewPostUseCase.new,
