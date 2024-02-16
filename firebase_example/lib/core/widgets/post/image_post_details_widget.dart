@@ -1,7 +1,6 @@
 import 'package:clean_framework_firebase_example/core/theme/firebase_example_theme.dart';
 import 'package:clean_framework_firebase_example/core/widgets/misc/misc_widgets.dart';
 import 'package:clean_framework_router/clean_framework_router.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 class ImagePostDetailsWidget extends StatelessWidget {

@@ -21,16 +21,15 @@ class HomeUI extends UI<HomeViewModel> {
     return GestureDetector(
       child: SafeArea(
         top: true,
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              ...viewModel.userPosts.map(
-                (post) => Column(
-                  children: [
-                    if (viewModel.loadingState != LoadPostsState.finished)
-                      const FirebaseLoadingWidget(),
-                    ImagePostCard(
+        child: Stack(
+          fit: StackFit.loose,
+          children: [
+            SingleChildScrollView(
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  ...viewModel.userPosts.map(
+                    (post) => ImagePostCard(
                       post: post,
                       showComments: false,
                       onPostClicked: () => viewModel.onPostClicked(
@@ -40,11 +39,18 @@ class HomeUI extends UI<HomeViewModel> {
                         post.postId,
                       ),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-            ],
-          ),
+            ),
+            if (viewModel.loadingState != LoadPostsState.finished)
+              const Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  FirebaseLoadingWidget(),
+                ],
+              ),
+          ],
         ),
       ),
     );

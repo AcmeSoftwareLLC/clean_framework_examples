@@ -14,7 +14,7 @@ class _FirebaseLoadingWidgetState extends State<FirebaseLoadingWidget> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsetsDirectional.fromSTEB(16.0, 32.0, 16.0, 32.0),
+      padding: const EdgeInsetsDirectional.fromSTEB(32.0, 32.0, 32.0, 32.0),
       child: Center(
         child: LoadingAnimationWidget.discreteCircle(
             color: Colors.blue, size: 45.0),

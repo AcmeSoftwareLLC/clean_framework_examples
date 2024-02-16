@@ -1,11 +1,11 @@
 import 'package:clean_framework/clean_framework.dart';
+import 'package:clean_framework_firebase_example/providers.dart';
 import 'package:clean_framework_router/clean_framework_router.dart';
 import 'package:flutter/material.dart';
-import 'package:clean_framework_firebase_example/providers/external_interface_providers.dart';
 import 'package:clean_framework_firebase_example/router.dart';
 
-class ThemeExampleApp extends StatelessWidget {
-  const ThemeExampleApp({
+class FirebaseExampleApp extends StatelessWidget {
+  const FirebaseExampleApp({
     super.key,
   });
 

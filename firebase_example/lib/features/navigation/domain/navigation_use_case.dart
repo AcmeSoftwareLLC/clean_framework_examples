@@ -13,7 +13,7 @@ class NavigationUseCase extends UseCase<NavigationEntity> {
           ],
         );
 
-  Future<void> selectPage(int index) async {
+  void selectPage(int index) {
     entity = entity.copyWith(currentPageIndex: index);
   }
 }

@@ -93,7 +93,11 @@ class CreatePostUI extends UI<CreatePostViewModel> {
               ),
               Padding(
                 padding: const EdgeInsetsDirectional.fromSTEB(
-                    16.0, 16.0, 16.0, 16.0),
+                  16.0,
+                  16.0,
+                  16.0,
+                  16.0,
+                ),
                 child: TextField(
                   style: FirebaseExampleTheme.of(context).bodySmall,
                   onChanged: viewModel.onPostImageChanged,
@@ -105,7 +109,11 @@ class CreatePostUI extends UI<CreatePostViewModel> {
               ),
               Padding(
                 padding: const EdgeInsetsDirectional.fromSTEB(
-                    16.0, 16.0, 16.0, 16.0),
+                  16.0,
+                  16.0,
+                  16.0,
+                  16.0,
+                ),
                 child: TextField(
                   style: FirebaseExampleTheme.of(context).bodySmall,
                   onChanged: viewModel.onPostDescriptionChanged,
@@ -117,7 +125,11 @@ class CreatePostUI extends UI<CreatePostViewModel> {
               ),
               Padding(
                 padding: const EdgeInsetsDirectional.fromSTEB(
-                    16.0, 16.0, 16.0, 16.0),
+                  16.0,
+                  16.0,
+                  16.0,
+                  16.0,
+                ),
                 child: TextField(
                   keyboardType: TextInputType.number,
                   inputFormatters: <TextInputFormatter>[
@@ -134,7 +146,11 @@ class CreatePostUI extends UI<CreatePostViewModel> {
               ),
               Padding(
                 padding: const EdgeInsetsDirectional.fromSTEB(
-                    16.0, 16.0, 16.0, 16.0),
+                  16.0,
+                  16.0,
+                  16.0,
+                  16.0,
+                ),
                 child: TextField(
                   style: FirebaseExampleTheme.of(context).bodySmall,
                   onChanged: viewModel.onPostDateChanged,

@@ -59,31 +59,32 @@ class ImagePostCard extends StatelessWidget {
                     ),
                 ],
               ),
-              Row(
-                children: [
-                  ImagePostIconButton(
-                    borderRadius: 20.0,
-                    buttonSize: 40.0,
-                    fillColor:
-                        FirebaseExampleTheme.of(context).primaryBackground,
-                    icon: Icon(
-                      Icons.more_horiz,
-                      color: FirebaseExampleTheme.of(context).primaryText,
-                      size: 24.0,
+              if (!showComments)
+                Row(
+                  children: [
+                    ImagePostIconButton(
+                      borderRadius: 20.0,
+                      buttonSize: 40.0,
+                      fillColor:
+                          FirebaseExampleTheme.of(context).primaryBackground,
+                      icon: Icon(
+                        Icons.more_horiz,
+                        color: FirebaseExampleTheme.of(context).primaryText,
+                        size: 24.0,
+                      ),
+                      onPressed: () {
+                        showModalBottomSheet(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return ImagePostDetailsWidget(
+                              onDeleteClicked: onDeleteClicked,
+                            );
+                          },
+                        );
+                      },
                     ),
-                    onPressed: () {
-                      showModalBottomSheet(
-                        context: context,
-                        builder: (BuildContext context) {
-                          return ImagePostDetailsWidget(
-                            onDeleteClicked: onDeleteClicked,
-                          );
-                        },
-                      );
-                    },
-                  ),
-                ],
-              ),
+                  ],
+                ),
             ],
           ),
           ClipRRect(
