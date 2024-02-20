@@ -46,11 +46,6 @@ class CreatePostUseCase extends UseCase<CreatePostEntity> {
     entity = entity.copyWith(postLikes: postLikes);
   }
 
-  void updatePostDate(String postDate) {
-    clearCreateMessage();
-    entity = entity.copyWith(postDate: postDate);
-  }
-
   void clearCreateMessage() => entity = entity.copyWith(createMessage: '');
 
   void clearCache() => entity = entity.copyWith(
@@ -60,7 +55,6 @@ class CreatePostUseCase extends UseCase<CreatePostEntity> {
         postImage: '',
         postDescription: '',
         postLikes: 0,
-        postDate: '',
         createMessage: '',
       );
 
@@ -76,7 +70,6 @@ class CreatePostUseCase extends UseCase<CreatePostEntity> {
           postImageLink: entity.postImage,
           postLikes: entity.postLikes,
           postComment: entity.postDescription,
-          postDate: entity.postDate,
         ),
       ),
       onSuccess: (success) =>
@@ -100,7 +93,6 @@ class CreatePostDomainToUIModelTransformer extends DomainModelTransformer<
       postImage: entity.postImage,
       postDescription: entity.postDescription,
       postLikes: entity.postLikes,
-      postDate: entity.postDate,
       createMessage: entity.createMessage,
     );
   }

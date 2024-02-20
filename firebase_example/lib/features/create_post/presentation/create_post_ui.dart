@@ -144,22 +144,6 @@ class CreatePostUI extends UI<CreatePostViewModel> {
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(
-                  16.0,
-                  16.0,
-                  16.0,
-                  16.0,
-                ),
-                child: TextField(
-                  style: FirebaseExampleTheme.of(context).bodySmall,
-                  onChanged: viewModel.onPostDateChanged,
-                  decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelText: 'Date',
-                  ),
-                ),
-              ),
               const SizedBox(
                 height: 25.0,
               ),

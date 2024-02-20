@@ -8,7 +8,6 @@ class CreatePostEntity extends Entity {
     this.postImage = '',
     this.postDescription = '',
     this.postLikes = 0,
-    this.postDate = '',
     this.createMessage = '',
   });
 
@@ -19,7 +18,6 @@ class CreatePostEntity extends Entity {
   final String postImage;
   final String postDescription;
   final int postLikes;
-  final String postDate;
 
   final String createMessage;
 
@@ -41,7 +39,6 @@ class CreatePostEntity extends Entity {
       postImage: postImage ?? this.postImage,
       postDescription: postDescription ?? this.postDescription,
       postLikes: postLikes ?? this.postLikes,
-      postDate: postDate ?? this.postDate,
       createMessage: createMessage ?? this.createMessage,
     );
   }
@@ -54,7 +51,6 @@ class CreatePostEntity extends Entity {
         postImage,
         postDescription,
         postLikes,
-        postDate,
         createMessage,
       ];
 }

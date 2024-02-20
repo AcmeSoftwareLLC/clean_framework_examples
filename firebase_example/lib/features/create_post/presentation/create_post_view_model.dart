@@ -9,14 +9,12 @@ class CreatePostViewModel extends ViewModel {
     required this.postImage,
     required this.postDescription,
     required this.postLikes,
-    required this.postDate,
     required this.onUsernameChanged,
     required this.onProfileImageChanged,
     required this.onVerifiedChanged,
     required this.onPostImageChanged,
     required this.onPostDescriptionChanged,
     required this.onPostLikesChanged,
-    required this.onPostDateChanged,
     required this.onAddPost,
   });
 
@@ -27,7 +25,6 @@ class CreatePostViewModel extends ViewModel {
   final String postImage;
   final String postDescription;
   final int postLikes;
-  final String postDate;
 
   final ValueChanged<String> onUsernameChanged;
   final ValueChanged<String> onProfileImageChanged;
@@ -36,7 +33,6 @@ class CreatePostViewModel extends ViewModel {
   final ValueChanged<String> onPostImageChanged;
   final ValueChanged<String> onPostDescriptionChanged;
   final ValueChanged<int> onPostLikesChanged;
-  final ValueChanged<String> onPostDateChanged;
 
   final void Function() onAddPost;
 
@@ -48,6 +44,5 @@ class CreatePostViewModel extends ViewModel {
         postImage,
         postDescription,
         postLikes,
-        postDate,
       ];
 }

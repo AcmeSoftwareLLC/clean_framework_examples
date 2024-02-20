@@ -9,7 +9,6 @@ class CreatePostDomainToUIModel extends DomainModel {
     required this.postImage,
     required this.postDescription,
     required this.postLikes,
-    required this.postDate,
     this.createMessage = '',
   });
 
@@ -20,7 +19,6 @@ class CreatePostDomainToUIModel extends DomainModel {
   final String postImage;
   final String postDescription;
   final int postLikes;
-  final String postDate;
 
   final String createMessage;
 
@@ -32,7 +30,6 @@ class CreatePostDomainToUIModel extends DomainModel {
         postImage,
         postDescription,
         postLikes,
-        postDate,
         createMessage,
       ];
 }
